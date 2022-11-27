@@ -1,23 +1,33 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import React, { InputHTMLAttributes } from "react";
 import { classes, style } from "typestyle";
 import { baseColors } from "../../styling/colors.constant";
+import { Icon } from "./icon.element";
 
-type Props = {
+export type InputProps = {
   attributes?: InputHTMLAttributes<HTMLInputElement>;
+  iconName?: IconProp;
 };
 
-export function InputElement(props: Props): JSX.Element {
+export function InputElement(props: InputProps): JSX.Element {
   return (
-    <input
-      {...{
-        ...props.attributes,
-        className: classes(styles.input, props.attributes?.className),
-      }}
-    />
+    <div className={styles.inputContainer}>
+      <input
+        {...{
+          ...props.attributes,
+          className: classes(styles.input, props.attributes?.className),
+        }}
+        style={{ paddingLeft: props.iconName && 30 }}
+      />
+      {props.iconName && <Icon icon={props.iconName} className={styles.icon} />}
+    </div>
   );
 }
 
 const styles = {
+  inputContainer: style({
+    position: "relative",
+  }),
   input: style({
     display: "flex",
     alignItems: "center",
@@ -29,5 +39,12 @@ const styles = {
     outline: "none",
     borderWidth: 0,
     background: baseColors.grey,
+  }),
+  icon: style({
+    position: "absolute",
+    left: 0,
+    top: 10,
+    padding: "7px 8px",
+    color: baseColors.textGrey,
   }),
 };
