@@ -5,6 +5,8 @@ import {
   faHeart as faHeartSolid,
   faFilter,
   faArrowRightArrowLeft,
+  faChevronRight,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -12,7 +14,14 @@ import {
   FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
 
-library.add(faHeart, faHeartSolid, faFilter, faArrowRightArrowLeft);
+library.add(
+  faHeart,
+  faHeartSolid,
+  faFilter,
+  faArrowRightArrowLeft,
+  faChevronRight,
+  faMagnifyingGlass
+);
 
 export type IconProps = Omit<FontAwesomeIconProps, "icon"> & {
   icon: IconProp;
