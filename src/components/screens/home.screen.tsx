@@ -1,15 +1,28 @@
-import React, { FC } from "react";
+import React, { FC, useRef, useState } from "react";
 import { style } from "typestyle";
 import { useAllPokemon } from "../../state/hooks/useAllPokemon";
 import { Header } from "../elements/header.element";
 import { NavButton } from "../elements/nav-button.element";
 import { PokemonCard } from "../elements/pokemon-card.element";
+import { Popover } from "../elements/popover.element";
 import { SearchInput } from "../templates/search-input.template";
 
 export const Home: FC = () => {
+  const [showFilters, setShowFilters] = useState(false);
+
+  const openFilters = useRef(() => {
+    setShowFilters(true);
+  }).current;
+
+  const closeFilters = useRef(() => {
+    setShowFilters(false);
+  }).current;
+
   return (
     <div className="App" id="app">
-      <Header isListView />
+      <Popover onCloseClick={closeFilters} toggled={showFilters} />
+
+      <Header onFilterClick={openFilters} />
       <SearchInput
         onChangeTimeoutMilliseconds={500}
         attributes={{
