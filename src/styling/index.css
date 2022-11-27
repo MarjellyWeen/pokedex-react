@@ -1,13 +1,31 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+
+:root {
+  --color-white: #ffffff,
+  --color-black: #000000,
+  --color-grey: #eff0f1,
+  --color-midGrey: #f7f7f9,
+  --color-textGrey: #ACB2C1,
+  --color-statRed: #1bd0d9,
+  --color-statGreen: #70c18f,
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-white);
+  font-family: "SF Pro Display";
+  line-height: 1.6;
+  font-size: 15px;
+  letter-spacing: 0.374px;
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
