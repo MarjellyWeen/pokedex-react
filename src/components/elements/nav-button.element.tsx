@@ -1,19 +1,21 @@
 import React, { FC, useCallback } from "react";
 import { style } from "typestyle";
 import { baseColors, gradientColors } from "../../styling/colors.constant";
+import { useNavigate } from "react-router";
 
 interface IProps {
   isFavorites?: boolean;
 }
 
 export const NavButton: FC<IProps> = ({ isFavorites }) => {
+  const navigate = useNavigate();
   const handleNavigation = useCallback(() => {
     if (isFavorites) {
-      window.location.href = "/favorites";
+      navigate("/favorites");
     } else {
-      window.location.href = "/team";
+      navigate("/team");
     }
-  }, [name]);
+  }, [isFavorites, navigate]);
 
   return (
     <div
