@@ -1,8 +1,8 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FC } from "react";
 import { classes, style } from "typestyle";
 import { baseColors } from "../../styling/colors.constant";
+import { Icon } from "./icon.element";
 
 interface IProps {
   title?: string;
@@ -25,12 +25,9 @@ export const Header: FC<IProps> = ({
       <div className={styles.iconContainer}>
         {isListView && (
           <>
-            <FontAwesomeIcon
-              icon={"fa-solid fa-filter" as IconProp}
-              className={styles.icon}
-            />
-            <FontAwesomeIcon
-              icon={"fa-solid fa-arrow-right-arrow-left" as IconProp}
+            <Icon icon="filter" className={styles.icon} />
+            <Icon
+              icon="arrow-right-arrow-left"
               v-show="isListView"
               className={styles.icon}
               style={{ transform: "rotate(90deg)" }}
@@ -38,10 +35,7 @@ export const Header: FC<IProps> = ({
           </>
         )}
         {isDetailsView && (
-          <FontAwesomeIcon
-            icon={"fa-regular fa-heart" as IconProp}
-            className={styles.icon}
-          />
+          <FontAwesomeIcon icon="heart" className={styles.icon} />
         )}
       </div>
     </div>
