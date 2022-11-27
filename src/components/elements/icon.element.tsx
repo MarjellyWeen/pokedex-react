@@ -2,11 +2,11 @@ import React, { FC } from "react";
 
 import { IconProp, library } from "@fortawesome/fontawesome-svg-core";
 import {
-  faHeart as faHeartSolid,
   faFilter,
   faArrowRightArrowLeft,
   faChevronRight,
   faMagnifyingGlass,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -16,11 +16,12 @@ import {
 
 library.add(
   faHeart,
-  faHeartSolid,
+
   faFilter,
   faArrowRightArrowLeft,
   faChevronRight,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faXmark
 );
 
 export type IconProps = Omit<FontAwesomeIconProps, "icon"> & {
