@@ -1,4 +1,4 @@
-import { IType } from "./type.interface";
+import { IModel } from "./model.interface";
 
 export interface IPokemon {
   id: number;
@@ -19,6 +19,6 @@ export interface IPokemon {
   };
   types: {
     slot: number;
-    type: IType;
+    type: IModel;
   }[];
 }
