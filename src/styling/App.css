@@ -4,23 +4,17 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
-  font-weight: normal;
   padding-top: max(30px, env(safe-area-inset-top));
 }
 
 h1 {
   /* Default/Bold/LargeTitle */
-  font-family: "SF Pro Display";
-  font-style: normal;
   font-weight: 700;
   font-size: 34px;
   line-height: 41px;
-  letter-spacing: 0.374px;
 }
 
 h2 {
-  font-family: "SF Pro Display";
-  font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
@@ -29,13 +23,11 @@ h2 {
 }
 
 h3 {
-  font-family: "SF Pro Display";
-  font-style: normal;
   font-weight: 700;
   font-size: 17px;
   line-height: 20px;
-  letter-spacing: 0.374px;
   color: #000000;
+  margin: 0;
 }
 
 a,
