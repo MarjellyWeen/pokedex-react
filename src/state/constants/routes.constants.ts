@@ -18,7 +18,7 @@ export const routes: Record<string, IRoute> = {
     element: Team,
   },
   details: {
-    path: "/details/:id",
+    path: "/details/:name",
     element: Details,
   },
 };
