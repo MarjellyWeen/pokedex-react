@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 
-export const Home: FC = () => {
+export const Favorites: FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>A Simple Pokedex</h1>
+        <h1>Favorites</h1>
       </header>
     </div>
   );
