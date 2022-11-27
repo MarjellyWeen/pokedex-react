@@ -11,20 +11,21 @@ export const baseColors = {
 };
 
 export const typeColors: { [key: string]: string } = {
-  water: "#7934da",
-  fire: "#7934da",
-  grass: "#7934da",
+  water: "#4592C3",
+  fire: "#FD7D25",
+  grass: "#95C24D",
   electric: "#b6a42f",
   ground: "#7e5b27",
   rock: "#d5d5d4",
-  fairy: "#cd90bf",
-  poison: "#ba7ec7",
-  bug: "#f8d5a3",
+  fairy: "#FDB9E9",
+  poison: "#BA7EC8",
+  bug: "#f46f36",
   dragon: "#cd90bf",
   psychic: "#a8b349",
   flying: "#93b1b2",
   fighting: "#a7896d",
   normal: "#a2acae",
+  ghost: "#7B62A3",
 };
 
 export const gradientColors: { [key: string]: string } = {
