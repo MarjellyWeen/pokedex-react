@@ -6,15 +6,17 @@ import { Icon } from "./icon.element";
 
 interface IProps {
   title?: string;
-  isListView?: boolean;
-  isDetailsView?: boolean;
+  onFilterClick?: () => void;
+  onSortClick?: () => void;
+  onFavoriteClick?: () => void;
   isLigthTheme?: boolean;
 }
 
 export const Header: FC<IProps> = ({
   title,
-  isListView,
-  isDetailsView,
+  onFilterClick,
+  onSortClick,
+  onFavoriteClick,
   isLigthTheme,
 }) => {
   return (
@@ -23,19 +25,25 @@ export const Header: FC<IProps> = ({
         {title ?? "Pokédex"}
       </h1>
       <div className={styles.iconContainer}>
-        {isListView && (
-          <>
-            <Icon icon="filter" className={styles.icon} />
-            <Icon
-              icon="arrow-right-arrow-left"
-              v-show="isListView"
-              className={styles.icon}
-              style={{ transform: "rotate(90deg)" }}
-            />
-          </>
+        {onFilterClick && (
+          <Icon icon="filter" className={styles.icon} onClick={onFilterClick} />
         )}
-        {isDetailsView && (
-          <FontAwesomeIcon icon="heart" className={styles.icon} />
+        {onSortClick && (
+          <Icon
+            icon="arrow-right-arrow-left"
+            className={styles.icon}
+            onClick={onSortClick}
+            style={{ transform: "rotate(90deg)" }}
+          />
+        )}
+        {/* only added light theme to heart icon for now, because there's no reason
+        to have a dark theme heart icon yet */}
+        {onFavoriteClick && (
+          <FontAwesomeIcon
+            icon="heart"
+            className={classes(styles.icon, isLigthTheme && styles.isLight)}
+            onClick={onFavoriteClick}
+          />
         )}
       </div>
     </div>
