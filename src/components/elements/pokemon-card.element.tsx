@@ -4,10 +4,10 @@ import { baseColors, typeColors } from "../../styling/colors.constant";
 import { useNavigate } from "react-router";
 import { Icon } from "./icon.element";
 import { usePokemon } from "../../state/hooks/usePokemon";
-import { IPokemonBase } from "../../state/interfaces/pokemon-base.interface";
+import { IModel } from "../../state/interfaces/model.interface";
 
 interface IProps {
-  pokemon: IPokemonBase;
+  pokemon: IModel;
 }
 
 export const PokemonCard: FC<IProps> = ({ pokemon }) => {
