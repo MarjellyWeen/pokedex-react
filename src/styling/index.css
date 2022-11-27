@@ -14,9 +14,12 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-white);
+  font-family: "SF Pro Display";
   line-height: 1.6;
-  font-family: SF Pro Display;
   font-size: 15px;
+  letter-spacing: 0.374px;
+  font-style: normal;
+  font-weight: normal;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
