@@ -33,7 +33,7 @@ const styles = {
     alignItems: "center",
     padding: "7px 8px",
     gap: 6,
-    width: "95%",
+    width: "90%",
     height: 36,
     borderRadius: 8,
     outline: "none",
