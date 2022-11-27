@@ -15,7 +15,7 @@ export const PokemonCard: FC<IProps> = ({ pokemon }) => {
   const navigate = useNavigate();
 
   const handleNavigation = useCallback(() => {
-    navigate(`/pokemon/${pokemon.name}`);
+    navigate(`/details/${pokemon.name}`);
   }, [navigate, pokemon]);
 
   return (
@@ -76,7 +76,6 @@ const styles = {
   type: style({
     alignItems: "flex-start",
     padding: "3px 10px",
-    width: 56,
     height: 20,
     borderRadius: 100,
     fontSize: 12,
