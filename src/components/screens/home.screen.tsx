@@ -1,11 +1,17 @@
 import React, { FC } from "react";
+import { Header } from "../elements/header.element";
+import { InputElement } from "../elements/input.element";
 
 export const Home: FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>A Simple Pokedex</h1>
-      </header>
+      <Header />
+      <InputElement
+        attributes={{
+          name: "search",
+          placeholder: "Pokemon zoeken",
+        }}
+      />
     </div>
   );
 };
