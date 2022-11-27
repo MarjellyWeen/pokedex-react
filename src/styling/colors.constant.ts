@@ -3,7 +3,8 @@ export const baseColors = {
   black: "#000000",
   grey: "#eff0f1",
   midGrey: "#f7f7f9",
-  textGrey: "#ACB2C1",
+  textMidGrey: "#ACB2C1",
+  textGrey: "#919698",
   statRed: "#1bd0d9",
   statGreen: "#70c18f",
 };
