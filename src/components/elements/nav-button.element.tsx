@@ -39,7 +39,7 @@ export const NavButton: FC<IProps> = ({ isFavorites }) => {
 
 const styles = {
   button: style({
-    width: 167,
+    width: "50%",
     height: 100,
     borderRadius: 10,
   }),
