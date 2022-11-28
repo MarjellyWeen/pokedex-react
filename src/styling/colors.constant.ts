@@ -1,12 +1,13 @@
 export const baseColors = {
   white: "#ffffff",
   black: "#000000",
+  blackLight: "##1f2029",
   grey: "#eff0f1",
   midGrey: "#f7f7f9",
   darkGrey: " #babec2",
   textMidGrey: "#acb2c1",
   textGrey: "#919698",
-  statRed: "#1bd0d9",
+  statRed: "#DF6563",
   statGreen: "#70c18f",
 };
 
