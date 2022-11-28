@@ -3,14 +3,26 @@ import { style } from "typestyle";
 import { baseColors, typeColors } from "../../styling/colors.constant";
 import { useNavigate } from "react-router";
 import { Icon } from "./icon.element";
-import { usePokemon } from "../../state/hooks/usePokemon";
+import { IModel } from "../../state/interfaces/model.interface";
 
 interface IProps {
   pokemonName: string;
+  pokemonId: number;
+  pokemonTypes: {
+    slot: number;
+    type: IModel;
+  }[];
+  pokemonSprites: {
+    front_default: string;
+  };
 }
 
-export const PokemonCard: FC<IProps> = ({ pokemonName }) => {
-  const pokemonDetails = usePokemon(pokemonName).pokemon;
+export const PokemonCard: FC<IProps> = ({
+  pokemonName,
+  pokemonId,
+  pokemonSprites,
+  pokemonTypes,
+}) => {
   const navigate = useNavigate();
 
   const handleNavigation = useCallback(() => {
@@ -19,16 +31,16 @@ export const PokemonCard: FC<IProps> = ({ pokemonName }) => {
 
   return (
     <div className={styles.item} onClick={handleNavigation}>
-      <img src={pokemonDetails?.sprites.front_default} />
+      <img src={pokemonSprites.front_default} />
       <div className={styles.details}>
         <h3>{pokemonName}</h3>
         <div className={styles.order}>
           {" "}
-          #{pokemonDetails?.id.toString().padStart(3, "0")}
+          #{pokemonId.toString().padStart(3, "0")}
         </div>
       </div>
       <div className={styles.typeContainer}>
-        {pokemonDetails?.types.map((typeSlot) => (
+        {pokemonTypes.map((typeSlot) => (
           <div
             className={styles.type}
             key={`${pokemonName}-${typeSlot.type.name}`}
