@@ -10,6 +10,8 @@ interface IProps {
   onSortClick?: () => void;
   onFavoriteClick?: () => void;
   isLigthTheme?: boolean;
+  themeColor?: string;
+  onBackClick?: () => void;
 }
 
 export const Header: FC<IProps> = ({
@@ -18,9 +20,19 @@ export const Header: FC<IProps> = ({
   onSortClick,
   onFavoriteClick,
   isLigthTheme,
+  themeColor,
+  onBackClick,
 }) => {
   return (
-    <div className={styles.header}>
+    <div
+      className={styles.header}
+      style={{ background: themeColor ? themeColor : baseColors.white }}
+    >
+      {onBackClick && (
+        <div className={styles.backButtonContainer} onClick={onBackClick}>
+          <Icon icon="chevron-left" className={styles.backButtonIcon} /> Back
+        </div>
+      )}
       <h1 className={classes(styles.title, isLigthTheme && styles.isLight)}>
         {title ?? "Pokédex"}
       </h1>
@@ -52,16 +64,33 @@ export const Header: FC<IProps> = ({
 
 const styles = {
   header: style({
+    position: "fixed",
     display: "flex",
-    height: 103,
-    width: "100%",
+    height: 133,
+    top: 0,
+    left: 0,
+    width: "90%",
+    padding: "30px 30px 0 30px",
     marginBottom: 14,
+    zIndex: 10,
   }),
   title: style({
     /* ✏️ Title */
     height: 41,
     width: "inherit",
     alignSelf: "end",
+  }),
+  backButtonContainer: style({
+    position: "absolute",
+    display: "flex",
+    color: baseColors.white,
+    fontSize: 17,
+    height: 46,
+    alignItems: "center",
+    gap: 5,
+  }),
+  backButtonIcon: style({
+    fontSize: 23,
   }),
   isLight: style({
     color: baseColors.white,

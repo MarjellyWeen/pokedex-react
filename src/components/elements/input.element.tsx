@@ -1,5 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import React, { InputHTMLAttributes } from "react";
+import React, { FC, InputHTMLAttributes } from "react";
 import { classes, style } from "typestyle";
 import { baseColors } from "../../styling/colors.constant";
 import { Icon } from "./icon.element";
@@ -9,7 +9,7 @@ export type InputProps = {
   iconName?: IconProp;
 };
 
-export function InputElement(props: InputProps): JSX.Element {
+export const InputElement: FC<InputProps> = (props) => {
   return (
     <div className={styles.inputContainer}>
       <input
@@ -22,7 +22,7 @@ export function InputElement(props: InputProps): JSX.Element {
       {props.iconName && <Icon icon={props.iconName} className={styles.icon} />}
     </div>
   );
-}
+};
 
 const styles = {
   inputContainer: style({

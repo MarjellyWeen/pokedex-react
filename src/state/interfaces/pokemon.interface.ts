@@ -13,4 +13,17 @@ export interface IPokemon {
     slot: number;
     type: IModel;
   }[];
+  stats: {
+    base_stat: number;
+    effort: number;
+    stat: IModel;
+  }[];
+  abilities: {
+    ability: IModel;
+    is_hidden: boolean;
+    slot: number;
+  }[];
+  moves: {
+    move: IModel;
+  }[];
 }

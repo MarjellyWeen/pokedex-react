@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { IModel } from "../interfaces/model.interface";
+import { IPokemonBase } from "../interfaces/pokemon-base.interface";
 
-export const useAllPokemon = (limit?: number, offset?: number) => {
-  const [pokemonList, setPokemonList] = useState<IModel[]>([]);
+export const useAllPokemon = () => {
+  const [pokemonList, setPokemonList] = useState<IPokemonBase[]>([]);
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+    fetch(`https://stoplight.io/mocks/appwise-be/pokemon/57519009/pokemon`)
       .then((response) => response.json())
       .then((data) => {
-        setPokemonList(data.results);
+        setPokemonList(data);
       })
       .catch((err) => {
         console.log(err.message);

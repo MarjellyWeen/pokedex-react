@@ -30,6 +30,16 @@ h3 {
   margin: 0;
 }
 
+h4 {
+  font-weight: 600;
+  font-size: 15px;
+  font-style: normal;
+  line-height: 20px;
+  color: #000000;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
 a,
 .white {
   text-decoration: none;
