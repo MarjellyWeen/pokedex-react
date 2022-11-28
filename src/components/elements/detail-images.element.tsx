@@ -11,9 +11,9 @@ interface IProps {
 export const DetailImages: FC<IProps> = ({ sprites }) => {
   return (
     <div className={styles.imageContainer}>
-      <Icon className={styles.icon} icon="chevron-right" />
+      <Icon className={styles.icon} icon="chevron-left" />
       <img className={styles.image} src={sprites?.front_default} />
-      <div className={styles.shadow} />
+
       <Icon className={styles.icon} icon="chevron-right" />
     </div>
   );
@@ -23,7 +23,6 @@ const styles = {
   imageContainer: style({
     display: "flex",
     width: "100%",
-    height: "100%",
     alignItems: "center",
     justifyContent: "space-between",
   }),
@@ -31,15 +30,6 @@ const styles = {
     width: 225,
     height: 225,
     objectFit: "cover",
-  }),
-  shadow: style({
-    position: "absolute",
-    width: 213,
-    height: 12,
-    left: "20%",
-    bottom: "20%",
-    background: "rgba(0, 0, 0, 0.3)",
-    filter: "blur(7.5px)",
   }),
   icon: style({
     width: 20,
