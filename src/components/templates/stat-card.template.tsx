@@ -22,7 +22,14 @@ export const StatCard: FC<IProps> = ({ stats }) => {
           <div className={styles.statBar}>
             <div
               className={styles.statBarFill}
-              style={{ width: `${stat.base_stat}%` }}
+              style={{
+                width: `${stat.base_stat / 2}%`,
+                backgroundColor: `${
+                  stat.base_stat < 50
+                    ? baseColors.statGreen
+                    : baseColors.statRed
+                }`,
+              }}
             />
           </div>
         </div>
@@ -60,14 +67,5 @@ const styles = {
     left: 0,
     height: 4,
     borderRadius: 100,
-    // TODO - check how to make this work. It's not working because there's only one div in this container.
-    $nest: {
-      "&:nth-child(even)": {
-        background: baseColors.statGreen,
-      },
-      "&:nth-child(odd)": {
-        background: baseColors.statRed,
-      },
-    },
   }),
 };
