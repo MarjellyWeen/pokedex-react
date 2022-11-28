@@ -19,11 +19,16 @@ export const Home: FC = () => {
     setShowFilters(false);
   }).current;
 
+  const pokemon = useAllPokemon();
+
   return (
     <div className="App" id="app">
       <Popover onCloseClick={closeFilters} toggled={showFilters} />
 
-      <Header onFilterClick={openFilters} />
+      <Header
+        onFilterClick={openFilters}
+        onSortClick={() => console.log("sort!")}
+      />
       <div className={styles.container}>
         <SearchInput
           onChangeTimeoutMilliseconds={500}
@@ -38,8 +43,14 @@ export const Home: FC = () => {
         <div className={styles.buttonContainer}>
           <NavButton key="team" /> <NavButton isFavorites key="favorites" />
         </div>
-        {useAllPokemon(151).pokemonList.map((pokemon) => (
-          <PokemonCard key={pokemon.name} pokemonName={pokemon.name} />
+        {pokemon.pokemonList.map((pokemon) => (
+          <PokemonCard
+            key={pokemon.name}
+            pokemonName={pokemon.name}
+            pokemonId={pokemon.id}
+            pokemonSprites={pokemon.sprites}
+            pokemonTypes={pokemon.types}
+          />
         ))}
       </div>
     </div>
