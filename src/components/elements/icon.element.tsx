@@ -5,10 +5,12 @@ import {
   faFilter,
   faArrowRightArrowLeft,
   faChevronRight,
+  faChevronLeft,
   faMagnifyingGlass,
   faXmark,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+// import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
@@ -16,10 +18,10 @@ import {
 
 library.add(
   faHeart,
-
   faFilter,
   faArrowRightArrowLeft,
   faChevronRight,
+  faChevronLeft,
   faMagnifyingGlass,
   faXmark
 );
