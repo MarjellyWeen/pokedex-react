@@ -10,7 +10,7 @@ import { classes, style } from "typestyle";
 import { baseColors } from "../../styling/colors.constant";
 import { Icon } from "./icon.element";
 
-export type Props = HTMLAttributes<HTMLDivElement> &
+export type PopoverProps = HTMLAttributes<HTMLDivElement> &
   PropsWithChildren<{
     toggled?: boolean;
     onCloseClick?(): void;
@@ -24,7 +24,7 @@ export function Popover({
   onCloseClick,
   toggled = false,
   ...htmlAttributes
-}: Props): JSX.Element | null {
+}: PopoverProps): JSX.Element | null {
   const container = useRef(document.getElementById("popover")).current;
 
   const stopTouchPropagation = useRef((event: TouchEvent<HTMLDivElement>) =>
