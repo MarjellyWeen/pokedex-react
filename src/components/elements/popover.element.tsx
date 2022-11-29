@@ -98,7 +98,7 @@ export const styles = {
   window: style({
     display: "flex",
     flexDirection: "column",
-    height: 356,
+    height: 400,
     background: baseColors.white,
     overflow: "hidden",
     borderTopLeftRadius: 25,
@@ -141,6 +141,7 @@ export const styles = {
 
   content: style({
     display: "flex",
+    flexDirection: "column",
     padding: `0px ${spacing.baseSpacing}px`,
   }),
 
