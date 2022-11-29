@@ -8,7 +8,7 @@ export const useGetFavorites = () => {
   const [favorites, setFavorites] = useState<
     {
       name: string;
-      order: number;
+      id: number;
       types: {
         slot: number;
         type: IModel;

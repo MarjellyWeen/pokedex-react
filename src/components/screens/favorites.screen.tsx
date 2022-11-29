@@ -26,11 +26,11 @@ export const Favorites: FC = () => {
         isLigthTheme
       />
       <div className={styles.container}>
-        {favorites?.map(({ name, order, sprites, types }) => (
+        {favorites?.map(({ name, id, sprites, types }) => (
           <PokemonCard
             key={name}
             name={name}
-            id={order}
+            id={id}
             types={types}
             sprites={sprites}
           />
