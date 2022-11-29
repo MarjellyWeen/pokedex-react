@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router";
 import { style } from "typestyle";
-import { useGetFavorites } from "../../state/hooks/useGetFavorites";
+import { useGetSavedPokemon } from "../../state/hooks/useGetSavedPokemon";
 import { gradientColors } from "../../styling/colors.constant";
 import { spacing } from "../../styling/spacing.constant";
 import { Header } from "../elements/header.element";
@@ -9,7 +9,7 @@ import { PokemonCard } from "../elements/pokemon-card.element";
 
 export const Favorites: FC = () => {
   const navigate = useNavigate();
-  const { favorites } = useGetFavorites();
+  const { savedPokemon: favorites } = useGetSavedPokemon("favorites");
 
   return (
     <div
