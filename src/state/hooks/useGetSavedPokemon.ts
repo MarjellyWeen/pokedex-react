@@ -3,9 +3,9 @@ import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { IModel } from "../interfaces/model.interface";
 
-export const useGetFavorites = () => {
+export const useGetSavedPokemon = (type: "favorites" | "team") => {
   const [isLoading, setIsLoading] = useState(true);
-  const [favorites, setFavorites] = useState<
+  const [savedPokemon, setSavedPokemon] = useState<
     {
       name: string;
       id: number;
@@ -24,14 +24,14 @@ export const useGetFavorites = () => {
 
   const getData = useCallback(async () => {
     async function fetchData() {
-      const { data } = await axios.get(" http://localhost:3004/favorites");
-      setFavorites(data);
+      const { data } = await axios.get(`http://localhost:3004/${type}`);
+      setSavedPokemon(data);
     }
     try {
       setIsLoading(true);
       fetchData();
     } catch (error: unknown) {
-      console.error(`Could not get favorites. Error: ${error}`);
+      console.error(`Could not get ${type}. Error: ${error}`);
       setError(error);
     }
     setIsLoading(false);
@@ -44,7 +44,7 @@ export const useGetFavorites = () => {
   return {
     isLoading,
     error,
-    favorites,
+    savedPokemon,
     refetch,
   };
 };
