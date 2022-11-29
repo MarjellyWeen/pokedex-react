@@ -26,8 +26,8 @@ export const StatCard: FC<IProps> = ({ stats }) => {
                 width: `${stat.base_stat / 2}%`,
                 backgroundColor: `${
                   stat.base_stat < 50
-                    ? baseColors.statGreen
-                    : baseColors.statRed
+                    ? baseColors.statRed
+                    : baseColors.statGreen
                 }`,
               }}
             />
