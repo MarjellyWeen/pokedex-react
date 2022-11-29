@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { IModel } from "../interfaces/model.interface";
 import { IPokemonBase } from "../interfaces/pokemon-base.interface";
 
-export const usePostFavoritePokemon = () => {
+export const usePostPokemon = (type: "favorites" | "team") => {
   // create state variables
   const [pokemon, setPokemon] = useState<IPokemonBase>();
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +22,7 @@ export const usePostFavoritePokemon = () => {
       }
     ) => {
       async function postData() {
-        const { data } = await axios.post(`http://localhost:3004/favorites`, {
+        const { data } = await axios.post(`http://localhost:3004/${type}`, {
           name,
           id,
           types,
