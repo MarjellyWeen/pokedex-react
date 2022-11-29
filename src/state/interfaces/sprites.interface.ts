@@ -7,4 +7,9 @@ export interface ISprites {
   front_female: string;
   front_shiny: string;
   front_shiny_female: string;
+  other: {
+    "official-artwork": {
+      front_default: string;
+    };
+  };
 }

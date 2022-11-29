@@ -9,8 +9,9 @@ import {
   faMagnifyingGlass,
   faXmark,
   faHeart,
+  faHeartBroken,
 } from "@fortawesome/free-solid-svg-icons";
-// import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
@@ -18,6 +19,8 @@ import {
 
 library.add(
   faHeart,
+  faHeartRegular,
+  faHeartBroken,
   faFilter,
   faArrowRightArrowLeft,
   faChevronRight,

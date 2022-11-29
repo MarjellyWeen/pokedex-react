@@ -5,9 +5,10 @@ import { useNavigate } from "react-router";
 
 interface IProps {
   isFavorites?: boolean;
+  count?: number;
 }
 
-export const NavButton: FC<IProps> = ({ isFavorites }) => {
+export const NavButton: FC<IProps> = ({ isFavorites, count }) => {
   const navigate = useNavigate();
   const handleNavigation = useCallback(() => {
     if (isFavorites) {
@@ -31,7 +32,7 @@ export const NavButton: FC<IProps> = ({ isFavorites }) => {
         <h2 className={styles.title}>
           {isFavorites ? "Favorites" : "My team"}
         </h2>
-        <div className={styles.count}>12 Pokemon</div>
+        <div className={styles.count}>{count ? count : "0"} Pokémon</div>
       </div>
     </div>
   );
@@ -39,7 +40,7 @@ export const NavButton: FC<IProps> = ({ isFavorites }) => {
 
 const styles = {
   button: style({
-    width: 167,
+    width: "50%",
     height: 100,
     borderRadius: 10,
   }),
