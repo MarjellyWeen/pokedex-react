@@ -1,13 +1,14 @@
 import React, { FC, useEffect, useState } from "react";
 import { style } from "typestyle";
 import { useGetAllPokemon } from "../../state/hooks/useGetAllPokemon";
-import { useGetFavorites } from "../../state/hooks/useGetFavorites";
+import { useGetSavedPokemon } from "../../state/hooks/useGetSavedPokemon";
 import { IPokemonBase } from "../../state/interfaces/pokemon-base.interface";
 import { spacing } from "../../styling/spacing.constant";
 import { Header } from "../elements/header.element";
 import { NavButton } from "../elements/nav-button.element";
 import { PokemonCard } from "../elements/pokemon-card.element";
 import { Popover } from "../elements/popover.element";
+import { SelectTab } from "../elements/select-tab.element";
 import { Spinner } from "../elements/spinner.element";
 import { SearchInput } from "../templates/search-input.template";
 
@@ -18,7 +19,11 @@ export const Home: FC = () => {
   const [asc, setAsc] = useState(true);
 
   const { pokemonList, isLoading } = useGetAllPokemon();
-  const { favorites } = useGetFavorites();
+  const { savedPokemon: favorites } = useGetSavedPokemon("favorites");
+  const { savedPokemon: team } = useGetSavedPokemon("team");
+
+  const favoritesCount = favorites?.length || 0;
+  const teamCount = team?.length || 0;
 
   // A useCallback function to sort the pokemon by name asc or desc
   const sortPokemon = (asc: boolean) => {
@@ -58,7 +63,30 @@ export const Home: FC = () => {
         onCloseClick={() => setShowFilters(false)}
         toggled={showFilters}
         title="Sort by"
-      ></Popover>
+      >
+        <div className={styles.tabContainer}>
+          <SelectTab
+            icon="arrow-up-a-z"
+            isSelected={true}
+            text="Alphabetically ascending"
+          />
+          <SelectTab
+            icon="arrow-down-z-a"
+            isSelected={false}
+            text="Alphabetically descending"
+          />
+          <SelectTab
+            icon="arrow-up-1-9"
+            isSelected={false}
+            text="Numerically ascending"
+          />
+          <SelectTab
+            icon="arrow-down-9-1"
+            isSelected={false}
+            text="Numerically descending"
+          />
+        </div>
+      </Popover>
 
       <Header
         onFilterClick={() => setShowFilters(true)}
@@ -79,8 +107,8 @@ export const Home: FC = () => {
           iconName="magnifying-glass"
         />
         <div className={styles.buttonContainer}>
-          <NavButton key="team" />{" "}
-          <NavButton isFavorites key="favorites" count={favorites?.length} />
+          <NavButton key="team" count={teamCount} />
+          <NavButton isFavorites key="favorites" count={favoritesCount} />
         </div>
         <Spinner show={isLoading} />
         {filteredPokemon.map((pokemon) => (
@@ -106,5 +134,10 @@ const styles = {
     gap: 9,
     marginTop: 19,
     marginBottom: 20,
+  }),
+  tabContainer: style({
+    display: "flex",
+    flexDirection: "column",
+    gap: 9,
   }),
 };
