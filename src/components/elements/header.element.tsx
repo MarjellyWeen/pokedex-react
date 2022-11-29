@@ -68,13 +68,15 @@ const styles = {
   header: style({
     position: "fixed",
     display: "flex",
+    justifyContent: "space-between",
     height: 133,
     top: 0,
     left: 0,
-    width: "90%",
+    maxWidth: 1280,
+    width: "-webkit-fill-available",
     padding: "30px 30px 0 30px",
     marginBottom: 14,
-    zIndex: 10,
+    zIndex: 1,
   }),
   title: style({
     /* ✏️ Title */
