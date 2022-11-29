@@ -8,12 +8,16 @@ import React, {
 import { createPortal } from "react-dom";
 import { classes, style } from "typestyle";
 import { baseColors } from "../../styling/colors.constant";
+import { spacing } from "../../styling/spacing.constant";
+import { ButtonElement } from "./button.element";
 import { Icon } from "./icon.element";
 
 export type PopoverProps = HTMLAttributes<HTMLDivElement> &
   PropsWithChildren<{
     toggled?: boolean;
     onCloseClick?(): void;
+    onSubmitClick?(): void;
+    title?: string;
   }>;
 
 /**
@@ -22,6 +26,8 @@ export type PopoverProps = HTMLAttributes<HTMLDivElement> &
 export function Popover({
   children,
   onCloseClick,
+  onSubmitClick,
+  title,
   toggled = false,
   ...htmlAttributes
 }: PopoverProps): JSX.Element | null {
@@ -54,8 +60,19 @@ export function Popover({
           <div onClick={onCloseClick} className={styles.closeButtonContainer}>
             <Icon icon={"xmark"} />
           </div>
+          <div className={styles.content}>
+            {title && <h2 className={styles.title}>{title}</h2>}
 
-          {children}
+            {children}
+          </div>
+        </div>
+        <div className={styles.submitButtonContainer}>
+          <ButtonElement
+            text="Submit"
+            attributes={{
+              onClick: onSubmitClick,
+            }}
+          />
         </div>
       </div>
     ) : null,
@@ -124,6 +141,19 @@ export const styles = {
 
   content: style({
     display: "flex",
-    marginTop: -30,
+    padding: `0px ${spacing.baseSpacing}px`,
+  }),
+
+  submitButtonContainer: style({
+    position: "absolute",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: spacing.baseSpacing,
+    width: "calc(100% - 2 * 16px)",
+  }),
+
+  title: style({
+    color: baseColors.black,
   }),
 };

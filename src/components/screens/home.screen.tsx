@@ -57,7 +57,8 @@ export const Home: FC = () => {
       <Popover
         onCloseClick={() => setShowFilters(false)}
         toggled={showFilters}
-      />
+        title="Sort by"
+      ></Popover>
 
       <Header
         onFilterClick={() => setShowFilters(true)}
