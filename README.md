@@ -1,3 +1,28 @@
+# Pokedex
+
+Main libraries used:
+
+- [Typescript](https://www.typescriptlang.org)
+- [React](https://reactjs.org)
+- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [Typestyle](https://typestyle.github.io/) - CSS in JS _see my own research on [google docs, in dutch](https://docs.google.com/document/d/1BxhsA2046WIe3-FywTnTe84cqb7qGVZvURAMukqHmg4/edit?usp=sharing)_
+- [Axios](https://github.com/axios/axios)
+- [Lightbox](https://fslightbox.com/javascript/documentation)
+- [Fontawesome](https://fontawesome.com/docs)
+
+Development tools:
+
+- [ESLint](https://eslint.org/)
+- [Json-server](https://github.com/typicode/json-server) - Used to post favorites & team list localy _Though the docs said not to embed json into local files, i wasn't sure if this only meant for the base pokemon list, not favs and team list. Since this api does not have and endpoint to post these list to._
+
+Assement details:
+
+- [Requirements](https://appwise.atlassian.net/wiki/spaces/SOL/pages/556335129/Front-End)
+- [Design](https://www.figma.com/file/QeWa9FEHrAO6lqa5V6pQ8K/Sollicitatie-test?node-id=59%3A766&t=oCHLigFzm6AckfC8-0)
+- [Mock-API-docs](https://appwise-be.stoplight.io/docs/pokemon/52335a540da77-front-end)
+
+## Usage
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -39,32 +64,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
