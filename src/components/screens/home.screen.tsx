@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { style } from "typestyle";
 import { useGetAllPokemon } from "../../state/hooks/useGetAllPokemon";
 import { useGetFavorites } from "../../state/hooks/useGetFavorites";
@@ -8,6 +8,7 @@ import { Header } from "../elements/header.element";
 import { NavButton } from "../elements/nav-button.element";
 import { PokemonCard } from "../elements/pokemon-card.element";
 import { Popover } from "../elements/popover.element";
+import { Spinner } from "../elements/spinner.element";
 import { SearchInput } from "../templates/search-input.template";
 
 export const Home: FC = () => {
@@ -16,15 +17,7 @@ export const Home: FC = () => {
   const [filteredPokemon, setFilteredPokemon] = useState<IPokemonBase[]>([]);
   const [asc, setAsc] = useState(true);
 
-  const openFilters = useRef(() => {
-    setShowFilters(true);
-  }).current;
-
-  const closeFilters = useRef(() => {
-    setShowFilters(false);
-  }).current;
-
-  const { pokemonList } = useGetAllPokemon();
+  const { pokemonList, isLoading } = useGetAllPokemon();
   const { favorites } = useGetFavorites();
 
   // A useCallback function to sort the pokemon by name asc or desc
@@ -61,10 +54,13 @@ export const Home: FC = () => {
 
   return (
     <div className="App" id="app">
-      <Popover onCloseClick={closeFilters} toggled={showFilters} />
+      <Popover
+        onCloseClick={() => setShowFilters(false)}
+        toggled={showFilters}
+      />
 
       <Header
-        onFilterClick={openFilters}
+        onFilterClick={() => setShowFilters(true)}
         onSortClick={() => {
           setAsc(!asc);
           sortPokemon(asc);
@@ -85,6 +81,7 @@ export const Home: FC = () => {
           <NavButton key="team" />{" "}
           <NavButton isFavorites key="favorites" count={favorites?.length} />
         </div>
+        <Spinner show={isLoading} />
         {filteredPokemon.map((pokemon) => (
           <PokemonCard
             key={pokemon.name}
