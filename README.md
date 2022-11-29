@@ -13,9 +13,9 @@ Main libraries used:
 Development tools:
 
 - [ESLint](https://eslint.org/)
-- [Json-server](https://github.com/typicode/json-server) - Used to post favorites & team list localy _Though the docs said not to embed json into local files, i wasn't sure if this only meant for the base pokemon list, not favs and team list. Since this api does not have and endpoint to post these list to._
+- [Json-server](https://github.com/typicode/json-server) - Used to post favorites & team list localy _Though the docs said not to embed json into local files, i wasn't sure if this only meant for the base pokemon list, not favs and team list. Since this api does not have and endpoint to post these lists and it's details to._
 
-Assement details:
+Assassment details:
 
 - [Requirements](https://appwise.atlassian.net/wiki/spaces/SOL/pages/556335129/Front-End)
 - [Design](https://www.figma.com/file/QeWa9FEHrAO6lqa5V6pQ8K/Sollicitatie-test?node-id=59%3A766&t=oCHLigFzm6AckfC8-0)
