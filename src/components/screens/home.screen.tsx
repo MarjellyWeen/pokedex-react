@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import { style } from "typestyle";
-import { useAllPokemon } from "../../state/hooks/useAllPokemon";
+import { useGetAllPokemon } from "../../state/hooks/useGetAllPokemon";
+import { useGetFavorites } from "../../state/hooks/useGetFavorites";
 import { IPokemonBase } from "../../state/interfaces/pokemon-base.interface";
 import { spacing } from "../../styling/spacing.constant";
 import { Header } from "../elements/header.element";
@@ -23,7 +24,8 @@ export const Home: FC = () => {
     setShowFilters(false);
   }).current;
 
-  const pokemon = useAllPokemon();
+  const { pokemonList } = useGetAllPokemon();
+  const { favorites } = useGetFavorites();
 
   // A useCallback function to sort the pokemon by name asc or desc
   const sortPokemon = (asc: boolean) => {
@@ -42,7 +44,7 @@ export const Home: FC = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (search) {
-        const filteredPokemon = pokemon.pokemonList.filter((pokemon) => {
+        const filteredPokemon = pokemonList.filter((pokemon) => {
           return (
             pokemon.name.includes(search) ||
             pokemon.id.toString().includes(search)
@@ -50,12 +52,12 @@ export const Home: FC = () => {
         });
         setFilteredPokemon(filteredPokemon);
       } else {
-        setFilteredPokemon(pokemon.pokemonList);
+        setFilteredPokemon(pokemonList);
       }
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [search, pokemon.pokemonList]);
+  }, [search, pokemonList]);
 
   return (
     <div className="App" id="app">
@@ -80,15 +82,16 @@ export const Home: FC = () => {
           iconName="magnifying-glass"
         />
         <div className={styles.buttonContainer}>
-          <NavButton key="team" /> <NavButton isFavorites key="favorites" />
+          <NavButton key="team" />{" "}
+          <NavButton isFavorites key="favorites" count={favorites?.length} />
         </div>
         {filteredPokemon.map((pokemon) => (
           <PokemonCard
             key={pokemon.name}
-            pokemonName={pokemon.name}
-            pokemonId={pokemon.id}
-            pokemonSprites={pokemon.sprites}
-            pokemonTypes={pokemon.types}
+            name={pokemon.name}
+            id={pokemon.id}
+            types={pokemon.types}
+            sprites={pokemon.sprites}
           />
         ))}
       </div>
