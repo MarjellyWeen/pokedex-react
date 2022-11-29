@@ -10,6 +10,7 @@ interface IProps {
   onSortClick?: () => void;
   onFavoriteClick?: () => void;
   isLigthTheme?: boolean;
+  isFavorite?: boolean;
   themeColor?: string;
   onBackClick?: () => void;
 }
@@ -20,6 +21,7 @@ export const Header: FC<IProps> = ({
   onSortClick,
   onFavoriteClick,
   isLigthTheme,
+  isFavorite,
   themeColor,
   onBackClick,
 }) => {
@@ -52,7 +54,7 @@ export const Header: FC<IProps> = ({
         to have a dark theme heart icon yet */}
         {onFavoriteClick && (
           <FontAwesomeIcon
-            icon="heart"
+            icon={isFavorite ? "heart" : "heart-broken"}
             className={classes(styles.icon, isLigthTheme && styles.isLight)}
             onClick={onFavoriteClick}
           />
