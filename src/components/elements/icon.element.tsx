@@ -10,6 +10,11 @@ import {
   faXmark,
   faHeart,
   faHeartBroken,
+  faArrowUpAZ,
+  faArrowDownZA,
+  faArrowUp19,
+  faArrowDown91,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -26,7 +31,12 @@ library.add(
   faChevronRight,
   faChevronLeft,
   faMagnifyingGlass,
-  faXmark
+  faXmark,
+  faArrowUpAZ,
+  faArrowDownZA,
+  faArrowUp19,
+  faArrowDown91,
+  faCheck
 );
 
 export type IconProps = Omit<FontAwesomeIconProps, "icon"> & {
