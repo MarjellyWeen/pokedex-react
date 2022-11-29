@@ -2,7 +2,7 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import { IPokemonBase } from "../interfaces/pokemon-base.interface";
 
-export const useDeleteFavoritePokemon = () => {
+export const useDeleteSavedPokemon = (type: "favorites" | "team") => {
   // create state variables
   const [pokemon, setPokemon] = useState<IPokemonBase>();
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +11,7 @@ export const useDeleteFavoritePokemon = () => {
   const call = useCallback((id: number) => {
     async function deleteData() {
       const { data } = await axios.delete(
-        `http://localhost:3004/favorites/${id}`
+        `http://localhost:3004/${type}/${id}`
       );
       const singleItem = Array.isArray(data) ? data[0] : data;
       setPokemon(singleItem);
