@@ -6,44 +6,36 @@ import { Icon } from "./icon.element";
 import { IModel } from "../../state/interfaces/model.interface";
 
 interface IProps {
-  pokemonName: string;
-  pokemonId: number;
-  pokemonTypes: {
+  name: string;
+  id: number;
+  types: {
     slot: number;
     type: IModel;
   }[];
-  pokemonSprites: {
+  sprites: {
     front_default: string;
   };
 }
 
-export const PokemonCard: FC<IProps> = ({
-  pokemonName,
-  pokemonId,
-  pokemonSprites,
-  pokemonTypes,
-}) => {
+export const PokemonCard: FC<IProps> = ({ name, id, sprites, types }) => {
   const navigate = useNavigate();
 
   const handleNavigation = useCallback(() => {
-    navigate(`/details/${pokemonName}`);
-  }, [navigate, pokemonName]);
+    navigate(`/details/${name}`);
+  }, [navigate, name]);
 
   return (
     <div className={styles.item} onClick={handleNavigation}>
-      <img src={pokemonSprites.front_default} />
+      <img src={sprites.front_default} />
       <div className={styles.details}>
-        <h3>{pokemonName}</h3>
-        <div className={styles.order}>
-          {" "}
-          #{pokemonId.toString().padStart(3, "0")}
-        </div>
+        <h3>{name}</h3>
+        <div className={styles.order}> #{id.toString().padStart(3, "0")}</div>
       </div>
       <div className={styles.typeContainer}>
-        {pokemonTypes.map((typeSlot) => (
+        {types.map((typeSlot) => (
           <div
             className={styles.type}
-            key={`${pokemonName}-${typeSlot.type.name}`}
+            key={`${name}-${typeSlot.type.name}`}
             style={{
               background: typeColors[typeSlot.type.name ?? "normal"],
             }}
