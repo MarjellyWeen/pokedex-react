@@ -8,6 +8,7 @@ interface IProps {
   count?: number;
 }
 
+// This component is used to navigate to the favorites or team screen.
 export const NavButton: FC<IProps> = ({ isFavorites, count }) => {
   const navigate = useNavigate();
   const handleNavigation = useCallback(() => {

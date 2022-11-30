@@ -9,6 +9,7 @@ interface IProps {
   sprites?: ISprites;
 }
 
+/** A component that displays a pokemon's images. It has a click handler that opens a lightbox. */
 export const DetailImages: FC<IProps> = ({ sprites }) => {
   const [toggler, setToggler] = useState(false);
   // an arry with the images

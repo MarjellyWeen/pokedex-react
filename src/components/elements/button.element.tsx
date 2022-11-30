@@ -7,6 +7,7 @@ export type ButtonProps = {
   text?: string;
 };
 
+/** A custom button element. */
 export const ButtonElement: FC<ButtonProps> = (props) => {
   return (
     <button

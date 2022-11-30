@@ -1,23 +1,11 @@
 import { useEffect, useState, useCallback } from "react";
 
 import axios from "axios";
-import { IModel } from "../interfaces/model.interface";
+import { IPokemonBase } from "../interfaces/pokemon-base.interface";
 
 export const useGetSavedPokemon = (type: "favorites" | "team") => {
   const [isLoading, setIsLoading] = useState(true);
-  const [savedPokemon, setSavedPokemon] = useState<
-    {
-      name: string;
-      id: number;
-      types: {
-        slot: number;
-        type: IModel;
-      }[];
-      sprites: {
-        front_default: string;
-      };
-    }[]
-  >();
+  const [savedPokemon, setSavedPokemon] = useState<IPokemonBase[]>();
   const [error, setError] = useState<unknown>();
 
   const refetch = async () => getData();

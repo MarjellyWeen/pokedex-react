@@ -33,15 +33,19 @@ export const Details: FC = () => {
   // A useCallback function to post a pokemon to the favorites list.
   // This function checks if the pokemon is already in the favorites list before posting.
   const handleFavoritesClick = useCallback(() => {
+    // Check if result.pokemon exists else return.
     if (!result.pokemon) {
       return;
     }
+    // Check if the pokemon is already in the favorites list.
     if (
       favorites?.find((favorite) => favorite.name === result?.pokemon?.name)
     ) {
+      // If the pokemon is already in the favorites list, remove it. And refetch the favorites list.
       removeFavorite(result.pokemon.id);
       getFavorites();
     } else if (
+      // If the pokemon is not in the favorites list, add it. And refetch the favorites list.
       favorites?.find((favorite) => favorite.name === result?.pokemon?.name) ===
       undefined
     ) {
@@ -55,7 +59,7 @@ export const Details: FC = () => {
     }
   }, [result.pokemon, favorites, createFavorite, removeFavorite, params.name]);
 
-  // TODO clean this up, it could possibly be combined with the above function, handleFavoritesClick.
+  // TODO clean this up, it could be combined with the above function, handleFavoritesClick.
   const handleAddToTeamClick = useCallback(() => {
     if (!result.pokemon) {
       return;

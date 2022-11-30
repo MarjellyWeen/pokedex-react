@@ -15,6 +15,16 @@ interface IProps {
   onBackClick?: () => void;
 }
 
+/**
+ * The header element.
+ * @param title The title of the header.
+ * @param isLigthTheme Whether the theme is light or not. (changes text color)
+ * @param isFavorite Whether the favorite button is a full heart or not.
+ * @param themeColor The color of the header.
+ * @param onBackClick The function to call when the back button is clicked.
+ * @returns {JSX.Element} The header element.
+ * @returns
+ */
 export const Header: FC<IProps> = ({
   title,
   onFilterClick,

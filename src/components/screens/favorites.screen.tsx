@@ -9,6 +9,8 @@ import { PokemonCard } from "../elements/pokemon-card.element";
 
 export const Favorites: FC = () => {
   const navigate = useNavigate();
+
+  // Get the favorites from the saved pokemon list.
   const { savedPokemon: favorites } = useGetSavedPokemon("favorites");
 
   return (

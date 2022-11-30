@@ -9,6 +9,7 @@ export type InputProps = {
   iconName?: IconProp;
 };
 
+// A custom input element.
 export const InputElement: FC<InputProps> = (props) => {
   return (
     <div className={styles.inputContainer}>

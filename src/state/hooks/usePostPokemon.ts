@@ -3,6 +3,16 @@ import { useCallback, useState } from "react";
 import { IModel } from "../interfaces/model.interface";
 import { IPokemonBase } from "../interfaces/pokemon-base.interface";
 
+/**
+ * A hook that will post a pokemon to the fake API (JSON Server)
+ * @param type: "favorites" | "team" - The type of pokemon to fetch
+ * @returns
+ * isLoading: boolean - Whether the data is being fetched
+ * error: unknown - The error that occurred
+ * savedPokemon: IPokemonBase[] - The list of saved pokemon
+ * refetch: () => Promise<void> - A function that will refetch the data
+ * call: (id: number) => Promise<void> - A function that will delete the pokemon by id
+ */
 export const usePostPokemon = (type: "favorites" | "team") => {
   // create state variables
   const [pokemon, setPokemon] = useState<IPokemonBase>();
