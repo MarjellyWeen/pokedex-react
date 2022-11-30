@@ -13,7 +13,7 @@ Main libraries used:
 Development tools:
 
 - [ESLint](https://eslint.org/)
-- [Json-server](https://github.com/typicode/json-server) - Used to post favorites & team list localy 
+- [Json-server](https://github.com/typicode/json-server) - Used to post favorites & team list locally 
 _Though the docs said not to embed json into local files, i wasn't sure if this only meant for the base pokemon list, not favs and team list. Since this api does not have and endpoint to post these lists and it's details to._
 
 Assassment details:
@@ -21,6 +21,14 @@ Assassment details:
 - [Requirements](https://appwise.atlassian.net/wiki/spaces/SOL/pages/556335129/Front-End)
 - [Design](https://www.figma.com/file/QeWa9FEHrAO6lqa5V6pQ8K/Sollicitatie-test?node-id=59%3A766&t=oCHLigFzm6AckfC8-0)
 - [Mock-API-docs](https://appwise-be.stoplight.io/docs/pokemon/52335a540da77-front-end)
+
+## Description
+
+*A project created as assassment for Wisemen.*
+
+Most requirements are included in this app, and comments have been placed to explain the function.
+However, there could be some spots that I have missed, or felt like it was self explanatory.
+Some functions do not work because of time running out. (I do still have a full time job). Functions which aren't finished have TODO tags.
 
 ## Usage
 
