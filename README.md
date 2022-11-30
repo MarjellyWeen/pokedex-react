@@ -14,7 +14,7 @@ Development tools:
 
 - [ESLint](https://eslint.org/)
 - [Json-server](https://github.com/typicode/json-server) - Used to post favorites & team list locally 
-_Though the docs said not to embed json into local files, i wasn't sure if this only meant for the base pokemon list, not favs and team list. Since this api does not have and endpoint to post these lists and it's details to._
+_Though the docs said not to embed json into local files, I wasn't sure if this only meant for the base pokemon list, not favs and team list. Since this api does not have and endpoint to post these lists and it's details to._
 
 Assassment details:
 
