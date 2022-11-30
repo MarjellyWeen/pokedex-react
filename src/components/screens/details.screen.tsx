@@ -123,10 +123,12 @@ export const Details: FC = () => {
           <EvolutionCard pokemonNumber={result.pokemon?.id} />
         )} */}
       </div>
-      <ButtonElement
-        text="Add to team"
-        attributes={{ onClick: handleAddToTeamClick }}
-      />
+      <div className={styles.buttonContainer}>
+        <ButtonElement
+          text="Add to team"
+          attributes={{ onClick: handleAddToTeamClick }}
+        />
+      </div>
     </div>
   );
 };
@@ -134,5 +136,14 @@ export const Details: FC = () => {
 const styles = {
   container: style({
     paddingTop: spacing.headerSpace,
+  }),
+  buttonContainer: style({
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    paddingBottom: spacing.baseSpacing * 2,
   }),
 };
