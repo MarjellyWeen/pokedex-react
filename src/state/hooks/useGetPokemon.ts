@@ -2,6 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { IPokemon } from "../interfaces/pokemon.interface";
 
+/**
+ * A hook that will fetch a pokemon from the mock API
+ * @param {string} pokemonName - The name of the pokemon
+ * @returns {object} - An object with the pokemon
+ * isLoading: boolean - Whether the data is being fetched
+ * error: unknown - The error that occurred
+ * pokemon: IPokemon - The pokemon
+ */
 export const useGetPokemon = (pokemonName: string) => {
   const [pokemon, setPokemon] = useState<IPokemon>();
   const [isLoading, setIsLoading] = useState(true);

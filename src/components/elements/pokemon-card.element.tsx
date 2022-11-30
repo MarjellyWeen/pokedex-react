@@ -17,6 +17,7 @@ interface IProps {
   };
 }
 
+// A card that displays a pokemon. It has a click handler that navigates to the pokemon detail screen.
 export const PokemonCard: FC<IProps> = ({ name, id, sprites, types }) => {
   const navigate = useNavigate();
 

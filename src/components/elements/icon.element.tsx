@@ -45,7 +45,6 @@ export type IconProps = Omit<FontAwesomeIconProps, "icon"> & {
 
 /**
  * Represents an inline icon element.
- *
  * ** You have to import every icon you use from fontawesome! **
  */
 export const Icon: FC<IconProps> = (props) => {

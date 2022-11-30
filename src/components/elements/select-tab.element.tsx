@@ -10,6 +10,7 @@ export type ButtonProps = {
   isSelected?: boolean;
 };
 
+/** A custom fake button element */
 export const SelectTab: FC<ButtonProps> = (props) => {
   return (
     <div className={classes(styles.tab, props.isSelected && styles.selected)}>

@@ -22,6 +22,7 @@ export type PopoverProps = HTMLAttributes<HTMLDivElement> &
 
 /**
  * Presents content in a box that pops over (on top of) other content.
+ * @returns {JSX.Element} The popover element.
  */
 export function Popover({
   children,

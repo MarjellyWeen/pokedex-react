@@ -7,6 +7,9 @@ interface IProps {
   children?: React.ReactNode;
 }
 
+/**
+ * A component that displays a card with a title and content.
+ */
 export const DetailCard: FC<IProps> = ({ name, children }) => {
   return (
     <div className={styles.cardContainer}>

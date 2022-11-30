@@ -9,6 +9,8 @@ import { PokemonCard } from "../elements/pokemon-card.element";
 
 export const Team: FC = () => {
   const navigate = useNavigate();
+
+  // Get the team from the saved pokemon list.
   const { savedPokemon: team } = useGetSavedPokemon("team");
 
   return (

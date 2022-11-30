@@ -18,6 +18,7 @@ export const Home: FC = () => {
   const [filteredPokemon, setFilteredPokemon] = useState<IPokemonBase[]>([]);
   const [asc, setAsc] = useState(true);
 
+  // Get all pokemon from the API.
   const { pokemonList, isLoading } = useGetAllPokemon();
   const { savedPokemon: favorites } = useGetSavedPokemon("favorites");
   const { savedPokemon: team } = useGetSavedPokemon("team");
@@ -25,7 +26,7 @@ export const Home: FC = () => {
   const favoritesCount = favorites?.length || 0;
   const teamCount = team?.length || 0;
 
-  // A useCallback function to sort the pokemon by name asc or desc
+  // A useCallback function to sort the pokemon by name asc or desc and set the filtered pokemon.
   const sortPokemon = (asc: boolean) => {
     const sortedPokemon = [...filteredPokemon].sort((a, b) => {
       if (asc) {
@@ -42,14 +43,18 @@ export const Home: FC = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (search) {
+        // Filter the pokemon by name or number.
         const filteredPokemon = pokemonList.filter((pokemon) => {
+          // return pokemon name or number that includes the search string.
           return (
             pokemon.name.includes(search) ||
             pokemon.id.toString().includes(search)
           );
         });
+        // Set the filtered pokemon.
         setFilteredPokemon(filteredPokemon);
       } else {
+        //if search is empty, set filtered pokemon to all pokemon
         setFilteredPokemon(pokemonList);
       }
     }, 500);
@@ -59,6 +64,7 @@ export const Home: FC = () => {
 
   return (
     <div className="App" id="app">
+      {/** TODO make these filter buttons work whenever "submit" is clicked */}
       <Popover
         onCloseClick={() => setShowFilters(false)}
         toggled={showFilters}
