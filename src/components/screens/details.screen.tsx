@@ -94,6 +94,14 @@ export const Details: FC = () => {
     }
   }, [getFavorites]);
 
+  const isOnTeam = useMemo(() => {
+    if (team?.find((teamItem) => teamItem.name === result?.pokemon?.name)) {
+      return true;
+    } else {
+      return false;
+    }
+  }, [getTeam]);
+
   return (
     <div
       className="App"
@@ -125,7 +133,7 @@ export const Details: FC = () => {
       </div>
       <div className={styles.buttonContainer}>
         <ButtonElement
-          text="Add to team"
+          text={isOnTeam ? "Remove from team" : "Add to team"}
           attributes={{ onClick: handleAddToTeamClick }}
         />
       </div>
